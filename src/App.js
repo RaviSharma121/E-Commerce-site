@@ -4,11 +4,12 @@ import { Counter } from './features/counter/Counter';
 import Productlist from './features/product.list/ProductList';
 import NavBar from './features/navbar/NavBar';
 import Login from './features/auth/components/Login';
-
+import Cart from './features/cart/Cart';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import './App.css';
 import SignupPage from './pages/SignupPage';
+import CartPage from './pages/CartPage';
 
 import { createRoot } from "react-dom/client";
 import {
@@ -26,11 +27,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element:<Login></Login>
+    element:<LoginPage></LoginPage>
   },
   {
     path: "/signup",
-    element:<Signup></Signup>
+    element:<SignupPage></SignupPage>
+  },
+  {
+    path: "/cart",
+    element:<CartPage></CartPage>
   },
 ]);
 
