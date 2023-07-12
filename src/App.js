@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
-import ProductList from './features/product.list/components/ProductList';
+import ProductList from './features/product/components/ProductList';
 import NavBar from './features/navbar/NavBar';
 import Login from './features/auth/components/Login';
 import Cart from './features/cart/Cart';
