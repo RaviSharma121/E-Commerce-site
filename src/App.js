@@ -17,6 +17,7 @@ import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
+  useParams,
   Route,
   Link,
 } from "react-router-dom";
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
     element:<Checkout></Checkout>
   },
   {
-    path: "/product-detail",
+    path: "/product-detail/:id",
     element:<ProductDetailPage></ProductDetailPage>
   },
 ]);
