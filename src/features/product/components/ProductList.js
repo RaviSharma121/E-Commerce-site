@@ -60,14 +60,19 @@ export default function ProductList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [page, setPage] = useState(1);
   const handleFilter = (e, section, option) => {
-    console.log(e.target.checked);
+    console.log(e);
+    
     const newFilter = { ...filter };
+    console.log(newFilter[section.id]);
+    console.log(option.value);
     // TODO : on server it will support multiple categories
     if (e.target.checked) {
       if (newFilter[section.id]) {
         newFilter[section.id].push(option.value);
       } else {
         newFilter[section.id] = [option.value];
+        console.log(section.id);
+        console.log(newFilter[section.id]);
       }
     } else {
       const index = newFilter[section.id].findIndex(

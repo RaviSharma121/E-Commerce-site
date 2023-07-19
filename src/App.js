@@ -1,61 +1,81 @@
-import React from 'react';
-import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
-import ProductList from './features/product/components/ProductList';
-import NavBar from './features/navbar/NavBar';
-import Login from './features/auth/components/Login';
-import Cart from './features/cart/Cart';
+import './App.css';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
-import './App.css';
 import SignupPage from './pages/SignupPage';
-import CartPage from './pages/CartPage';
-import Checkout from './pages/Checkout';
-import ProductDetailPage from './pages/ProductDetailPage'
 
-import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
-  useParams,
   Route,
   Link,
-} from "react-router-dom";
-import Signup from './features/auth/components/Signup';
-
+} from 'react-router-dom';
+import Cart from './features/cart/Cart';
+import CartPage from './pages/CartPage';
+import Checkout from './pages/Checkout';
+import ProductDetailPage from './pages/ProductDetailPage';
+import Protected from './features/auth/components/Protected';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectLoggedInUser } from './features/auth/authSlice';
+import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home></Home>
+    path: '/',
+    element: (
+      <Protected>
+        <Home></Home>
+      </Protected>
+    ),
   },
   {
-    path: "/login",
-    element:<LoginPage></LoginPage>
+    path: '/login',
+    element: <LoginPage></LoginPage>,
   },
   {
-    path: "/signup",
-    element:<SignupPage></SignupPage>
+    path: '/signup',
+    element: <SignupPage></SignupPage>,
   },
   {
-    path: "/cart",
-    element:<CartPage></CartPage>
+    path: '/cart',
+    element: (
+      <Protected>
+        <CartPage></CartPage>
+      </Protected>
+    ),
   },
   {
-    path: "/checkout",
-    element:<Checkout></Checkout>
+    path: '/checkout',
+    element: (
+      <Protected>
+        <Checkout></Checkout>
+      </Protected>
+    ),
   },
   {
-    path: "/product-detail/:id",
-    element:<ProductDetailPage></ProductDetailPage>
+    path: '/product-detail/:id',
+    element: (
+      <Protected>
+        <ProductDetailPage></ProductDetailPage>
+      </Protected>
+    ),
   },
 ]);
 
 function App() {
+
+  const dispatch = useDispatch();
+  const user = useSelector(selectLoggedInUser);
+
+  useEffect(()=>{
+    if(user){
+      dispatch(fetchItemsByUserIdAsync(user.id))
+    }
+  },[dispatch, user])
+
   return (
     <div className="App">
       <RouterProvider router={router} />
-      
-
     </div>
   );
 }
