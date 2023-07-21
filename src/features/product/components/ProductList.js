@@ -60,19 +60,14 @@ export default function ProductList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [page, setPage] = useState(1);
   const handleFilter = (e, section, option) => {
-    console.log(e);
-    
+    console.log(e.target.checked);
     const newFilter = { ...filter };
-    console.log(newFilter[section.id]);
-    console.log(option.value);
     // TODO : on server it will support multiple categories
     if (e.target.checked) {
       if (newFilter[section.id]) {
         newFilter[section.id].push(option.value);
       } else {
         newFilter[section.id] = [option.value];
-        console.log(section.id);
-        console.log(newFilter[section.id]);
       }
     } else {
       const index = newFilter[section.id].findIndex(
@@ -99,6 +94,7 @@ export default function ProductList() {
   useEffect(() => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
     dispatch(fetchProductsByFiltersAsync({ filter, sort, pagination }));
+    // TODO : Server will filter deleted products
   }, [dispatch, filter, sort, page]);
 
   useEffect(() => {
@@ -512,6 +508,12 @@ function ProductGrid({ products }) {
                     </p>
                   </div>
                 </div>
+                {product.deleted && (
+                  <div>
+                    <p className="text-sm text-red-400">product deleted</p>
+                  </div>
+                )}
+                {/* will not be needed when backend is implemented */}
               </div>
             </Link>
           ))}
