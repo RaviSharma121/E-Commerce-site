@@ -49,7 +49,8 @@
       "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
       "images": [
         "https://i.dummyjson.com/data/products/3/1.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 4,
@@ -2460,7 +2461,7 @@
         "state": "Rajasthan",
         "pinCode": "302031"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 1
     },
     {
@@ -2734,6 +2735,61 @@
       },
       "status": "pending",
       "id": 6
+    },
+    {
+      "items": [
+        {
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "productId": 5,
+          "quantity": 1,
+          "user": 3,
+          "id": 1
+        }
+      ],
+      "totalAmount": 446,
+      "totalItems": 1,
+      "user": {
+        "email": "rvssharma1@gmail.com",
+        "password": "Qwerty123",
+        "addresses": [
+          {
+            "name": "Ravi Sharma",
+            "email": "rvssharma1@gmail.com",
+            "phone": "66",
+            "street": " rajasthan",
+            "city": "Jaipur",
+            "state": "Rajasthan",
+            "pinCode": "302031"
+          }
+        ],
+        "role": "user",
+        "id": 3
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Ravi Sharma",
+        "email": "rvssharma1@gmail.com",
+        "phone": "66",
+        "street": " rajasthan",
+        "city": "Jaipur",
+        "state": "Rajasthan",
+        "pinCode": "302031"
+      },
+      "status": "pending",
+      "id": 7
     }
   ]
 }

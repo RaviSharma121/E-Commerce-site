@@ -1,14 +1,16 @@
 import NavBar from "../features/navbar/NavBar";
 import ProductDetail from "../features/product/components/ProductDetail";
+import Footer from "../features/common/Footer";
 
-function Home() {
+function ProductDetailPage() {
     return ( 
         <div>
             <NavBar>
                 <ProductDetail></ProductDetail>
             </NavBar>
+            <Footer></Footer>
         </div>
      );
 }
 
-export default Home;
+export default ProductDetailPage;
