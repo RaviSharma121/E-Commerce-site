@@ -2388,7 +2388,13 @@
       "id": 3
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "product": 1,
+      "quantity": 1,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
