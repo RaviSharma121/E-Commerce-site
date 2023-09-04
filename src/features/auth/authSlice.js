@@ -54,7 +54,7 @@ export const signOutAsync = createAsyncThunk(
 );
 
 export const authSlice = createSlice({
-  name: 'user',
+  name: 'auth',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
